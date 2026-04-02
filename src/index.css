@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 270 70% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 80%;
+
+    --muted: 0 0% 10%;
+    --muted-foreground: 0 0% 55%;
+
+    --accent: 270 70% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 15%;
+    --input: 0 0% 10%;
+    --ring: 270 70% 50%;
+
+    --radius: 0.5rem;
+
+    --surface: 0 0% 5%;
+    --surface-foreground: 0 0% 75%;
+
+    --success: 152 60% 48%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 0%;
+
+    --risk-low: 152 60% 48%;
+    --risk-medium: 38 92% 50%;
+    --risk-high: 0 70% 55%;
+
+    --gradient-start: 270 70% 50%;
+    --gradient-end: 270 100% 60%;
+
+    --card-hover: 0 0% 8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-feature-settings: "cv11", "ss01", "ss03";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
+  }
+
+  ::selection {
+    background: hsl(270 70% 50% / 0.3);
+  }
+}
+
+@layer components {
+  .screen-container {
+    @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+
+  .card-surface {
+    @apply bg-card border border-border rounded-xl p-5 transition-all duration-200;
+  }
+
+  .card-surface-hover {
+    @apply bg-card border border-border rounded-xl p-5 transition-all duration-200 hover:bg-[hsl(var(--card-hover))] hover:border-[hsl(220_10%_20%)];
+  }
+
+  .metric-label {
+    @apply text-[11px] font-medium text-muted-foreground uppercase tracking-[0.08em];
+  }
+
+  .metric-value {
+    @apply text-2xl font-bold text-foreground tracking-tight;
+  }
+
+  .gradient-card {
+    @apply rounded-xl p-5 border border-accent/20 bg-card/50 text-foreground;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-accent text-accent-foreground rounded-lg text-sm font-medium hover:brightness-110 transition-all duration-200 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border border-border text-foreground rounded-lg text-sm font-medium hover:bg-secondary transition-all duration-200 active:scale-[0.98];
+  }
+
+  .input-field {
+    @apply w-full px-4 py-3 bg-secondary border border-border rounded-lg text-foreground text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all;
+  }
+
+  .select-field {
+    @apply w-full px-4 py-3 bg-secondary border border-border rounded-lg text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-accent focus:border-accent transition-all appearance-none;
+  }
+
+  .sparkline-green {
+    @apply text-success;
+  }
+
+  .sparkline-red {
+    @apply text-destructive;
+  }
+}
